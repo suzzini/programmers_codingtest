@@ -11,7 +11,6 @@ def solution(scov, k):
         scov.append(scoville(min, scov[0]))  # 두번째로 작은 인덱스에 접근하기 위함
         heapq.heappop(scov)
         count += 1
-
         if (scov[0] < k and len(scov) == 1):
             return -1
 
