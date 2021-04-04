@@ -1,8 +1,3 @@
-
-
-
-
-
 import re
 def solution(new_id):
     #1단계
@@ -15,6 +10,8 @@ def solution(new_id):
     answer= re.sub("\.{2,}",".", answer)  # .가 2개 이상이면 . 하나로 바꾸기
 
     # 4단계
+    answer=answer.strip('.')
+    """
     if (answer == ''): #빈공백일경우
         answer = answer
     elif(answer[0]=='.'):
@@ -24,25 +21,18 @@ def solution(new_id):
         answer=answer
     elif(answer[-1] == '.'):
         answer = answer[0:-1]
-
+    """
     #5단계
     if(answer==""):
         answer='a'
 
     #6단계
-    if(len(answer)>=16):
-        answer=answer[0:15]
-    if(answer[-1]=='.'):
-        answer = answer[0:-1]
+    answer=answer[0:15].rstrip('.')
 
     #7단계
-    if (len(answer) <=2):
-        while(len(answer)<3):
-            answer+=answer[-1]
-            if(len(answer)==3):
-                break
+    while(len(answer)<3):
+        answer+=answer[-1]
 
     return answer
 
 print(solution("abcdefghijklmn.p"))
-
